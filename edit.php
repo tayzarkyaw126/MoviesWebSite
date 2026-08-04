@@ -14,11 +14,17 @@ if (isset($_GET['id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = intval($_POST['id']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $description1 = mysqli_real_escape_string($conn, $_POST['description1']);
+    $description2 = mysqli_real_escape_string($conn, $_POST['description2']);
     $poster_url = mysqli_real_escape_string($conn, $_POST['poster_url']);
     $video_url = mysqli_real_escape_string($conn, $_POST['video_url']);
+    $trailer_url = mysqli_real_escape_string($conn, $_POST['trailer_url']);
+    $download_url1 = mysqli_real_escape_string($conn, $_POST['download_url1']);
+    $download_url2 = mysqli_real_escape_string($conn, $_POST['download_url2']);
+    $download_url3 = mysqli_real_escape_string($conn, $_POST['download_url3']);
+    
 
-    $update_query = "UPDATE movies SET title='$title', description='$description', poster_url='$poster_url', video_url='$video_url' WHERE id=$id";
+    $update_query = "UPDATE movies SET title='$title', description1='$description1', poster_url='$poster_url', video_url='$video_url', trailer_url='$trailer_url', description2='$description2', download_url1='$download_url1', download_url2='$download_url2', download_url3='$download_url3' WHERE id=$id";
     
     if (mysqli_query($conn, $update_query)) {
         header("Location: admin.php?view=manage");
@@ -76,7 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
             <label>ဇာတ်လမ်းအကျဉ်း</label>
-            <textarea name="description" rows="5" required><?php echo htmlspecialchars($movie['description']); ?></textarea>
+            <textarea name="description1" rows="5" required><?php echo htmlspecialchars($movie['description1']); ?></textarea>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description2" rows="9" required><?php echo htmlspecialchars($movie['description2']); ?></textarea>
         </div>
         <div class="form-group">
             <label>Poster ပုံ Link (URL)</label>
@@ -85,6 +95,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group">
             <label>ဗီဒီယို Link (URL)</label>
             <input type="text" name="video_url" value="<?php echo htmlspecialchars($movie['video_url']); ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Trailer Link (URL)</label>
+            <input type="text" name="trailer_url" value="<?php echo htmlspecialchars($movie['trailer_url']); ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Download Link1 (URL)</label>
+            <input type="text" name="download_url1" value="<?php echo htmlspecialchars($movie['download_url1']); ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Download Link2 (URL)</label>
+            <input type="text" name="download_url2" value="<?php echo htmlspecialchars($movie['download_url2']); ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Download Link3 (URL)</label>
+            <input type="text" name="download_url3" value="<?php echo htmlspecialchars($movie['download_url3']); ?>" required>
         </div>
         <div class="btn-container">
             <button type="submit" class="btn-submit">သိမ်းဆည်းမည်</button>

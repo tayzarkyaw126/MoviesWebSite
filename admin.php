@@ -7,12 +7,17 @@ $message = "";
 // --- ဇာတ်ကားအသစ်လှမ်းတင်သည့် Backend Logic ---
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_movie'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $description1 = mysqli_real_escape_string($conn, $_POST['description1']);    
     $poster_url = mysqli_real_escape_string($conn, $_POST['poster_url']);
     $video_url = mysqli_real_escape_string($conn, $_POST['video_url']);
     $trailer_url = mysqli_real_escape_string($conn, $_POST['trailer_url']);
+    $description2 = mysqli_real_escape_string($conn, $_POST['description2']);   
+    $download_url1 = mysqli_real_escape_string($conn, $_POST['download_url1']);
+    $download_url2 = mysqli_real_escape_string($conn, $_POST['download_url2']);
+    $download_url3 = mysqli_real_escape_string($conn, $_POST['download_url3']);
+    
 
-    $insert_query = "INSERT INTO movies (title, description, poster_url, video_url, trailer_url) VALUES ('$title', '$description', '$poster_url', '$video_url', '$trailer_url')";
+    $insert_query = "INSERT INTO movies (title, description1, poster_url, video_url, trailer_url, description2, download_url1, download_url2, download_url3 ) VALUES ('$title', '$description1', '$poster_url', '$video_url', '$trailer_url', '$description2', '$download_url1', '$download_url2','$download_url3')";
     
     if (mysqli_query($conn, $insert_query)) {
         $message = "<div class='alert success'>🎬 ဇာတ်ကားအသစ်ကို အောင်မြင်စွာ တင်ပြီးပါပြီ။</div>";
@@ -164,7 +169,12 @@ elseif ($view == 'payments') {
 
             <div class="form-group">
                 <label>ဇာတ်လမ်းအကျဉ်း</label>
-                <textarea name="description" rows="5" required placeholder="ရုပ်ရှင်ဇာတ်လမ်းအကျဉ်းရေးရန်..."></textarea>
+                <textarea name="description1" rows="5" required placeholder="ရုပ်ရှင်ဇာတ်လမ်းအကျဉ်းရေးရန်..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Description2</label>
+                <textarea name="description2" rows="9" required placeholder="Star.Year.Hour.Type.Director.Release"></textarea>
             </div>
 
             <div class="form-group">
@@ -181,6 +191,21 @@ elseif ($view == 'payments') {
                 <label>Trailer Link (URL)</label>
                 <input type="text" name="trailer_url" placeholder="https://example.com/trailer.mp4 သို့မဟုတ် YouTube Link">
             </div>
+
+            <div class="form-group">
+                <label>Download Link1 (URL)</label>
+                <input type="text" name="download_url1" placeholder="https://example.com/download1 သို့မဟုတ် YouTube Link">
+            </div>
+
+            <div class="form-group">
+                <label>Download Link2 (URL)</label>
+                <input type="text" name="download_url2" placeholder="https://example.com/download2 သို့မဟုတ် YouTube Link">
+            </div>
+
+            <div class="form-group">
+                <label>Download Link3 (URL)</label>
+                <input type="text" name="download_url3" placeholder="https://example.com/download3 သို့မဟုတ် YouTube Link">
+            </div>            
 
             <div class="btn-container">
                 <button type="submit" class="btn-submit">Upload Movie</button>
@@ -212,7 +237,7 @@ elseif ($view == 'payments') {
                 <tr>
                     <td><img src="<?php echo $row['poster_url']; ?>" class="poster-preview" alt="Poster"></td>
                     <td><strong><?php echo $row['title']; ?></strong></td>
-                    <td><?php echo substr($row['description'], 0, 80) . '...'; ?></td>
+                    <td><?php echo substr($row['description1'], 0, 80) . '...'; ?></td>                   
                     <td>
                         <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn-edit">ပြင်ရန်</a>
                         <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn-delete" onclick="return confirm('ဒီဇာတ်ကားကို တကယ်ပဲ ဖျက်မှာ သေချာပါသလား?')">ဖျက်ရန်</a>

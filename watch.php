@@ -207,8 +207,8 @@ if ($play_mode === 'movie') {
             <h1 class="m-title"><?php echo htmlspecialchars($movie['title']); ?></h1>
             
             <div class="meta-badges">
-                <span class="badge-star">⭐ 5</span>  •  <span>2026</span>  •  <span>87 min</span>
-                <span class="badge-pill">Horror, Thriller</span>
+                <div class="synopsis-text">
+                <?php echo nl2br(htmlspecialchars($movie['description2'])); ?></div>
             </div>
             
             <div style="margin-top: 10px;">
@@ -232,7 +232,7 @@ if ($play_mode === 'movie') {
     
         <div class="content-panel">
             <div id="content-synopsis" class="synopsis-text">
-                <?php echo nl2br(htmlspecialchars($movie['description'])); ?>
+                <?php echo nl2br(htmlspecialchars($movie['description1'])); ?>
             </div>
         
             <div id="content-cast" class="CastList-text" style="display: none;">
@@ -241,6 +241,8 @@ if ($play_mode === 'movie') {
             
             <br>
             <div class="tech-specs">
+                <div id="content-synopsis" class="synopsis-text">
+                <?php echo nl2br(htmlspecialchars($movie['description2'])); ?></div>
                 <div class="spec-line"><span>File size..</span> 2.34 GB / 1.36 GB</div>
                 <div class="spec-line"><span>Quality..</span> WEB-DL 1080p / 720p</div>
                 <div class="spec-line"><span>Format..</span> mp4</div>
@@ -284,14 +286,28 @@ if ($play_mode === 'movie') {
             <tbody>
                 <tr>
                     <td style="padding:12px; border-top:1px solid #1e2936;">1</td>
-                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="<?php echo htmlspecialchars($movie['video_url']); ?>" target="_blank">Yoteshin (Direct Link)</a></td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="<?php echo htmlspecialchars($movie['download_url1']); ?>" target="_blank">Download Link1</a></td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">2.3 GB</td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">WEB-DL</td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">1080p</td>
                 </tr>
                 <tr>
                     <td style="padding:12px; border-top:1px solid #1e2936;">2</td>
-                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="#" onclick="alert('ဒီလင့်ခ်ကိုလည်း အစ်ကိုစိတ်ကြိုက် ပြောင်းလဲနိုင်ပါတယ်ဗျာ')">Telegram Link</a></td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="<?php echo htmlspecialchars($movie['download_url2']); ?>" target="_blank">Download Link2</a></td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">1.34 GB</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">WEB-DL</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">720p</td>
+                </tr>
+                <tr>
+                    <td style="padding:12px; border-top:1px solid #1e2936;">3</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="<?php echo htmlspecialchars($movie['download_url3']); ?>" target="_blank">Download Link3</a></td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">1.34 GB</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">WEB-DL</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">720p</td>
+                </tr>
+                <tr>
+                    <td style="padding:12px; border-top:1px solid #1e2936;">4</td>
+                    <td style="padding:12px; border-top:1px solid #1e2936;"><a href="<?php echo htmlspecialchars($movie['download_url3']); ?>" onclick="alert('Telegram App ထဲသို့သွားပါမယ်')">Telegram Link</a></td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">1.34 GB</td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">WEB-DL</td>
                     <td style="padding:12px; border-top:1px solid #1e2936;" class="txt-green">720p</td>
