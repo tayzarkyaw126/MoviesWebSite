@@ -15,9 +15,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_movie'])) {
     $download_url1 = mysqli_real_escape_string($conn, $_POST['download_url1']);
     $download_url2 = mysqli_real_escape_string($conn, $_POST['download_url2']);
     $download_url3 = mysqli_real_escape_string($conn, $_POST['download_url3']);
-    
+    $telegram_url1 = mysqli_real_escape_string($conn, $_POST['telegram_url1']);
+    $file_size = mysqli_real_escape_string($conn, $_POST['file_size']);
+    $movie_length = mysqli_real_escape_string($conn, $_POST['movie_length']);
+    $movies_seris = mysqli_real_escape_string($conn, $_POST['movies_seris']);
+    $release_date = mysqli_real_escape_string($conn, $_POST['release_date']);
+    $quality = mysqli_real_escape_string($conn, $_POST['quality']);
+    $resolution = mysqli_real_escape_string($conn, $_POST['resolution']);
+    $format = mysqli_real_escape_string($conn, $_POST['format']);
+    $genres = mysqli_real_escape_string($conn, $_POST['genres']);
+    $movies_type = mysqli_real_escape_string($conn, $_POST['movies_type']);
+    $subtitle = mysqli_real_escape_string($conn, $_POST['subtitle']);
+    $cast_list = mysqli_real_escape_string($conn, $_POST['cast_list']);
+    $author = mysqli_real_escape_string($conn, $_POST['author']);
+    $original_story = mysqli_real_escape_string($conn, $_POST['original_story']);
+    $screenwriter = mysqli_real_escape_string($conn, $_POST['screenwriter']);
+    $director = mysqli_real_escape_string($conn, $_POST['director']);
 
-    $insert_query = "INSERT INTO movies (title, description1, poster_url, video_url, trailer_url, description2, download_url1, download_url2, download_url3 ) VALUES ('$title', '$description1', '$poster_url', '$video_url', '$trailer_url', '$description2', '$download_url1', '$download_url2','$download_url3')";
+    $insert_query = "INSERT INTO movies (title, description1, poster_url, video_url, trailer_url, description2, download_url1, download_url2, download_url3, telegram_url1, file_size, movie_length, movies_seris, release_date, quality, resolution, format, genres, movies_type, subtitle, cast_list, author, original_story, screenwriter, director ) VALUES ('$title', '$description1', '$poster_url', '$video_url', '$trailer_url', '$description2', '$download_url1', '$download_url2','$download_url3', '$telegram_url1', '$file_size', '$movie_length', '$movies_seris', '$release_date', '$quality','$resolution', '$format', '$genres','$movies_type', '$subtitle', '$cast_list', '$author', '$original_story', '$screenwriter', '$director')";
     
     if (mysqli_query($conn, $insert_query)) {
         $message = "<div class='alert success'>🎬 ဇာတ်ကားအသစ်ကို အောင်မြင်စွာ တင်ပြီးပါပြီ။</div>";
@@ -205,8 +220,88 @@ elseif ($view == 'payments') {
             <div class="form-group">
                 <label>Download Link3 (URL)</label>
                 <input type="text" name="download_url3" placeholder="https://example.com/download3 သို့မဟုတ် YouTube Link">
-            </div>            
+            </div>  
+            
+            <div class="form-group">
+                <label>Telegram Link (URL)</label>
+                <input type="text" name="telegram_url1" placeholder="https://example.com/telegram1 သို့မဟုတ် YouTube Link">
+            </div>
 
+            <div class="form-group">
+                <label>File Size</label>
+                <input type="text" name="file_size" placeholder="File Size ထည့်ပါ (e.g.. 2.5Gb or 1Gb ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Movie Length</label>
+                <input type="text" name="movie_length" placeholder="ကြာချိန် ထည့်ပါ (e.g.. 90min or 1hr30min...)">
+            </div>
+
+            <div class="form-group">
+                <label>Movies or Seris</label>
+                <input type="text" name="movies_seris" placeholder="Movie or Seris ထည့်ပါ (e.g.. Movie or Seris...)">
+            </div>
+
+            <div class="form-group">
+                <label>Release Date</label>
+                <input type="text" name="release_date" placeholder="ထုတ်လုပ်သည့်ရက်စွဲ ထည့်ပါ (e.g.. 27/09/2007...)">
+            </div>             
+            
+            <div class="form-group">
+                <label>Quality</label>
+                <input type="text" name="quality" placeholder="Quality ထည့်ပါ (e.g.. SD , HD , FHD , QHD , UHD , UUHD ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Resolution</label>
+                <input type="text" name="resolution" placeholder="Resolution ထည့်ပါ (e.g 480p , 720p , 1080p , 2K , 4K , 8K ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Format</label>
+                <input type="text" name="format" placeholder="Format ထည့်ပါ (e.g MP4 , MKV , MOV , AVI , WMV , WEBM , FLV ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Genrus</label>
+                <input type="text" name="genrus" placeholder="ဇာတ်လမ်းအမျိုးအစား ထည့်ပါ (e.g.. Horror (ထိတ်လန့်ဖွယ် ဇာတ်လမ်းများ) , Science Fiction / Sci-Fi (သိပ္ပံကမ္ဘာ စိတ်ကူးယဉ်) , Fantasy (စိတ်ကူးယဉ် မော်ကွန်း) , Thriller & Mystery (သည်းထိတ်ရင်ဖိုနှင့် လျှို့ဝှက်ဆန်းကြယ်) , Romance (အချစ်ဇာတ်လမ်း) , Drama (ဒရာမာ/ဘဝသရုပ်ဖော်) , Action & Adventure (လှုပ်ရှားမှုနှင့် စွန့်စားခန်း) , Historical Fiction (သမိုင်းနောက်ခံ ဇာတ်လမ်းများ) , Comedy (ဟာသ) ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Movies Type</label>
+                <input type="text" name="movies_type" placeholder="ရုပ်ရှင်အမျိုးအစား ထည့်ပါ (e.g.. Live-Action Film , 2D Animation , 2D Animation ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Subtitle</label>
+                <input type="text" name="subtitle" placeholder="ဘာသာစကားထည့်ပါ (e.g.. English , Myanmar , Non ...)">
+            </div>
+
+            <div class="form-group">
+                <label>Cast List</label>
+                <input type="text" name="cast_list" placeholder="သရုပ်ဆောင်များထည့်ပါ (e.g.. ဒွေး , ထက်ထက်မိုးဦး...)">
+            </div>
+
+            <div class="form-group">
+                <label>Author</label>
+                <input type="text" name="author" placeholder="စာရေးဆရာနာမည် ထည့်ပါ (e.g.. မောင်ထွန်းသူ , မြသန်းတင့်...)">
+            </div>
+
+            <div class="form-group">
+                <label>Original Story</label>
+                <input type="text" name="original_story" placeholder="မူရင်း ဝတ္ထုနာမည် ထည့်ပါ (e.g.. ဇစ်မြစ် , ရဲတိုက် , သုခမြို့တော်...)">
+            </div>
+
+            <div class="form-group">
+                <label>Screenwriter</label>
+                <input type="text" name="screenwriter" placeholder="ဇာတ်ညွှန်း ထည့်ပါ (e.g.. ကိုဇော်(အာရုဏ်ဦး) , ဝိုင်း(Own Creator)...)">
+            </div>
+
+            <div class="form-group">
+                <label>Director</label>
+                <input type="text" name="director" placeholder="ဒါရိုက်တာ ထည့်ပါ (e.g.. ကိုဇော်(အာရုဏ်ဦး) , ဝိုင်း(Own Creator)...)">
+            </div>
+            
             <div class="btn-container">
                 <button type="submit" class="btn-submit">Upload Movie</button>
                 <a href="/" class="btn-cancel">Website သို့ ပြန်သွားရန်</a>
