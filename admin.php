@@ -264,7 +264,7 @@ elseif ($view == 'payments') {
 
             <div class="form-group">
                 <label>Genrus</label>
-                <input type="text" name="genrus" placeholder="ဇာတ်လမ်းအမျိုးအစား ထည့်ပါ (e.g.. Horror (ထိတ်လန့်ဖွယ် ဇာတ်လမ်းများ) , Science Fiction / Sci-Fi (သိပ္ပံကမ္ဘာ စိတ်ကူးယဉ်) , Fantasy (စိတ်ကူးယဉ် မော်ကွန်း) , Thriller & Mystery (သည်းထိတ်ရင်ဖိုနှင့် လျှို့ဝှက်ဆန်းကြယ်) , Romance (အချစ်ဇာတ်လမ်း) , Drama (ဒရာမာ/ဘဝသရုပ်ဖော်) , Action & Adventure (လှုပ်ရှားမှုနှင့် စွန့်စားခန်း) , Historical Fiction (သမိုင်းနောက်ခံ ဇာတ်လမ်းများ) , Comedy (ဟာသ) ...)">
+                <input type="text" name="genres" placeholder="ဇာတ်လမ်းအမျိုးအစား ထည့်ပါ (e.g.. Horror (ထိတ်လန့်ဖွယ် ဇာတ်လမ်းများ) , Science Fiction / Sci-Fi (သိပ္ပံကမ္ဘာ စိတ်ကူးယဉ်) , Fantasy (စိတ်ကူးယဉ် မော်ကွန်း) , Thriller & Mystery (သည်းထိတ်ရင်ဖိုနှင့် လျှို့ဝှက်ဆန်းကြယ်) , Romance (အချစ်ဇာတ်လမ်း) , Drama (ဒရာမာ/ဘဝသရုပ်ဖော်) , Action & Adventure (လှုပ်ရှားမှုနှင့် စွန့်စားခန်း) , Historical Fiction (သမိုင်းနောက်ခံ ဇာတ်လမ်းများ) , Comedy (ဟာသ) ...)">
             </div>
 
             <div class="form-group">
