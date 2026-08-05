@@ -161,8 +161,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="format" value="<?php echo htmlspecialchars($movie['format']); ?>" required>
         </div>
         <div class="form-group">
-            <label>Genrus</label>
-            <input type="text" name="genrus" value="<?php echo htmlspecialchars($movie['genrus']); ?>" required>
+            <label>Genres</label>
+            <input type="text" name="genres" value="<?php echo htmlspecialchars($movie['genres']); ?>" required>
         </div>
         <div class="form-group">
             <label>Movies Type</label>
