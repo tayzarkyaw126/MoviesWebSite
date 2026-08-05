@@ -77,7 +77,7 @@ if ($play_mode === 'movie') {
 
         /* 🔝 TOP INFO BLOCK */
         .movie-header-block { background-color: #131c26; padding: 25px; border-radius: 8px; display: flex; gap: 30px; border: 1px solid #1e2936; }
-        .header-left { width: 220px; flex-shrink: 0; }
+        .header-left { width: 300px; flex-shrink: 0; }
         .header-left img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
         
         .header-right { flex-grow: 1; display: flex; flex-direction: column; gap: 12px; }
@@ -88,8 +88,8 @@ if ($play_mode === 'movie') {
         .badge-star { color: #f1c40f; font-weight: bold; }
         .badge-pill { background: #52b755; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
         
-        .info-row { font-size: 14px; color: #8e9aa8; margin: 4px 0; }
-        .info-row strong { color: #fff; display: inline-block; width: 110px; }
+        .info-row { font-size: 14px; color: #f1c40f; margin: 4px 0; }
+        .info-row strong { color: #52b755; display: inline-block; width: 110px; }
         
         /* Play Buttons */
         .action-buttons { display: flex; gap: 12px; margin-top: 15px; }
@@ -205,15 +205,21 @@ if ($play_mode === 'movie') {
         </div>
         <div class="header-right">
             <h1 class="m-title"><?php echo htmlspecialchars($movie['title']); ?></h1>
-            
-            <div class="meta-badges">
-                <div class="synopsis-text">
-                <?php echo nl2br(htmlspecialchars($movie['description2'])); ?></div>
-            </div>
-            
+
             <div style="margin-top: 10px;">
-                <div class="info-row"><strong>Director</strong> Phil Volken</div>
-                <div class="info-row"><strong>Release Date</strong> 7/2/2026</div>
+                <div class="info-row"><strong>Genres...</strong><?php echo nl2br(htmlspecialchars($movie['genres'])); ?></div>
+                <div class="info-row"><strong>Casts...</strong><?php echo nl2br(htmlspecialchars($movie['cast_list'])); ?></div>
+                <div class="info-row"><strong>Author...</strong><?php echo nl2br(htmlspecialchars($movie['author'])); ?></div>
+                <div class="info-row"><strong>Story...</strong><?php echo nl2br(htmlspecialchars($movie['original_story'])); ?></div>
+                <div class="info-row"><strong>Screenwriter...</strong><?php echo nl2br(htmlspecialchars($movie['screenwriter']));?></div>
+                <div class="info-row"><strong>Director...</strong><?php echo nl2br(htmlspecialchars($movie['director'])); ?></div>
+                <div class="info-row"><strong>Release Date...</strong><?php echo nl2br(htmlspecialchars($movie['release_date'])); ?></div>
+                <div class="info-row"><strong>File Size...</strong><?php echo nl2br(htmlspecialchars($movie['file_size'])); ?></div>
+                <div class="info-row"><strong>Movie Length...</strong><?php echo nl2br(htmlspecialchars($movie['movie_length'])); ?></div>
+                <div class="info-row"><strong>Quality...</strong><?php echo nl2br(htmlspecialchars($movie['quality']));?></div>
+                <div class="info-row"><strong>Resolution...</strong><?php echo nl2br(htmlspecialchars($movie['resolution']));?></div>
+                <div class="info-row"><strong>Format...</strong><?php echo nl2br(htmlspecialchars($movie['format']));?></div>
+                <div class="info-row"><strong>Subtitle...</strong><?php echo nl2br(htmlspecialchars($movie['subtitle']));?></div>
             </div>
 
             <div class="action-buttons">
