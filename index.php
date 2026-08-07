@@ -44,6 +44,34 @@ $result = mysqli_query($conn, $query);
         .movie-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .movie-title { margin: 0 0 8px 0; font-size: 20px; font-weight: bold; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .movie-desc { margin: 0 0 20px 0; font-size: 14px; color: #aaa; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 42px; }
+
+        .info-row {
+            display: flex;
+            align-items: baseline; /* စာကြောင်းအမြင့် ညီစေရန် */
+            margin-bottom: 8px;   /* တန်းတစ်ခုနှင့်တစ်ခု အကွာအဝေး */
+        }
+
+        .info-row .label {
+            width: 70px;          /* Label များ၏ အကျယ်ကို တညီတညွတ်တည်း ထားရန် */
+            font-weight: bold;
+            color: #28a745;       /* ပုံထဲကအတိုင်း အစိမ်းရောင် */
+            flex-shrink: 0;       /* အကွက်မကျုံ့သွားစေရန် */
+        }
+
+        .info-row .colon {
+            width: 20px;          /* Colon များ တညီတညွတ်တည်း ဖြစ်စေရန် */
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;   /* Colon ကို အလယ်တည့်တည့် ထားရန် */
+            flex-shrink: 0;
+        }
+
+        .info-row .value {
+            flex: 1;              /* ကျန်ရှိသော နေရာအလွတ်တစ်ခုလုံးကို ယူရန် */
+            color: #ffc107;       /* ပုံထဲကအတိုင်း အဝါ/ဝါညိုရောင် */
+            word-break: break-word; /* စာကြောင်းရှည်ပါက အောက်ကြောင်းသို့ စနစ်တကျ ဆင်းစေရန် */
+        }
+        
         
         .btn-play { background-color: #ffffff; color: #121212; text-decoration: none; text-align: center; padding: 12px; border-radius: 4px; font-weight: bold; font-size: 15px; transition: 0.2s; display: block; }
         .btn-play:hover { background-color: #e50914; color: white; }
@@ -84,10 +112,26 @@ $result = mysqli_query($conn, $query);
                 <img src="<?php echo htmlspecialchars($row['poster_url']); ?>" class="movie-poster" alt="Poster">
             </a>
             <div class="movie-info">
-                <div>
-                    <h3 class="movie-title"><?php echo htmlspecialchars($row['title']); ?></h3>
-                    <p class="movie-desc"><?php echo htmlspecialchars($row['description']); ?></p>
+                <div><h3 class="movie-title"><?php echo htmlspecialchars($row['title']); ?></h3></div>
+                
+                <div class="info-row">
+                    <span class="label">Casts</span>
+                    <span class="colon">:</span>
+                    <span class="value"><?php echo htmlspecialchars($row['cast_list']); ?></span>
                 </div>
+
+                <div class="info-row">
+                    <span class="label">Author</span>
+                    <span class="colon">:</span>
+                    <span class="value"><?php echo htmlspecialchars($row['author']); ?></span>
+                </div>
+
+                <div class="info-row">
+                    <span class="label">Director</span>
+                    <span class="colon">:</span>
+                    <span class="value"><?php echo htmlspecialchars($row['director']); ?></span>
+                </div>
+
                 <!-- ▶ Play Movie ခလုတ်နှိပ်လျှင် watch.php သို့ သွားမည် -->
                 <a href="watch.php?id=<?php echo $row['id']; ?>" class="btn-play">▶ Play Movie</a>
             </div>
